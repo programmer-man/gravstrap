@@ -1,1 +1,5 @@
-{% extends 'home.html.twig' %}
+{% embed 'partials/base.html.twig' %}
+    {% block content %}
+        {{ content }}
+    {% endblock %}
+{% endembed %}

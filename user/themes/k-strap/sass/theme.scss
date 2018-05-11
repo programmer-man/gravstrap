@@ -1,7 +1,79 @@
-* {
-  font-family: 'Raleway', sans-serif;
+html {
+  position: relative;
+  height: 100%;
+  z-index: -1;
 }
 
-main#body {
-  margin-top: 55px;
+body {
+  height: auto !important;
+  min-height: 100%;
+  overflow-x: initial;
+}
+
+#app {
+  font-family: 'Raleway', sans-serif;
+
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+}
+
+#mobilemenu {
+  display: none;
+
+  &.is-active {
+    display: block;
+  }
+
+  .submenu {
+
+    .submenu-menu {
+      display: none;
+
+      &.is-open {
+        display: block;
+      }
+    }
+  }
+}
+
+#top {
+  width: 100%;
+  position: relative;
+  z-index: 3;
+  transition: all linear .5s;
+  height: 55px;
+
+  .nav-item.dropdown:hover {
+
+    .dropdown-menu {
+      display: block;
+      margin-top: -3px;
+
+      a { color: #999; }
+      a:hover { color: #333; }
+    }
+  }
+
+  @media screen and (min-width: 769px ) {
+    .fixed-top-md {
+      position: fixed;
+      width: 100%;
+    }
+  }
+}
+
+#mid {
+  position: relative;
+  flex: 1 0 auto;
+  z-index: 2;
+}
+
+.content {
+  padding: 2rem 0;
+}
+
+#bot {
+  position: relative;
+  z-index: 1;
 }

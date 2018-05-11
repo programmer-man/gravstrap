@@ -21,40 +21,45 @@
 <body class="{{ page.header.body_classes }}">
     <div id="app" class="app">
         {% block header %}
-        <header id="header" class="header">
-
-                <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
-                    <div class="container">
-
-                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#mainNavbar" aria-controls="mainNavbar" aria-expanded="false" aria-label="Toggle navigation">
-                            <span class="navbar-toggler-icon"></span>
-                        </button>
-
-                        <div class="collapse navbar-collapse" id="mainNavbar">
-                            {% block header_navigation %}
-                                {% include 'partials/navigation.html.twig' %}
-                            {% endblock %}
-
-                            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Purchase</button>
-                        </div>
-
+        <div id="mobilemenu" :class="{ 'is-active': isOpen }">
+            <div class="container">
+            {% block mobile_navigation %}
+                {% include 'partials/mobilenav.html.twig' %}
+            {% endblock %}
+            </div>
+        </div>
+        <div id="top" class="header">
+            <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top-md">
+                <div class="container">
+                    <button class="navbar-toggler" @click="toggleMenu" type="button" aria-controls="mobilemenu" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="mainNavbar">
+                        {% block header_navigation %}
+                            {% include 'partials/navigation.html.twig' %}
+                        {% endblock %}
                     </div>
-                </nav>
-
-        </header>
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Purchase</button>
+                </div>
+            </nav>
+        </div>
         {% endblock %}
 
         {% block body %}
-        <main id="body" role="main" class="{{ class }}">
+        <main id="mid" role="main" class="{{ class }}">
+            {% block pageheader %}
+            {% endblock %}
             <section class="container">
-                {% block content %}
-                {% endblock %}
+                <div class="content">
+                    {% block content %}
+                    {% endblock %}
+                </div>
             </section>
         </main>
         {% endblock %}
 
         {% block footer %}
-        <footer id="footer" class="text-muted py-5 bg-dark">
+        <footer id="bot" class="text-muted py-5 bg-dark">
             <div class="container">
                 <p class="float-right">
                     <a href="#">Back to top</a>

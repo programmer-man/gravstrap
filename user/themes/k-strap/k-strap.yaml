@@ -1,2 +1,4 @@
-enabled: false
+enabled: true
 default_lang: en
+dropdown:
+  enabled: true

@@ -2,7 +2,7 @@
     {% for p in page.children.visible %}
         {% set current_page = (p.active or p.activeChild) ? 'active' : '' %}
         <li class="nav-item {{ current_page }} {% if p.children.visible.count > 0 %}dropdown{% endif %}">
-            <a href="{{ p.url }}">
+            <a class="nav-link" href="{{ p.url }}">
                 {% if p.header.icon %}<i class="fa fa-{{ p.header.icon }}"></i>{% endif %}
                 {{ p.menu }}
             </a>
