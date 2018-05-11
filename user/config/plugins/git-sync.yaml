@@ -1,0 +1,18 @@
+enabled: true
+text_var: 'Custom Text added by the **Git Sync** plugin (disable plugin to remove)'
+folders:
+  - pages
+repository: 'https://github.com/keriganmarketing/gravdemo.git'
+user: programmer-man
+password: gitsync-def502003615b758b06614c5bfc6657f396d588a08b10cd55282c2690532643786055beebcd059aa5175341ecee31401d7a893eeee2abf887ef27c05b8f7926e5d483390fe4262d08f76b8c1ce34991146336d8cbb9eaeb5f702a5ca
+webhook: /_git-sync
+branch: master
+remote:
+  name: origin
+  branch: master
+git:
+  author: gituser
+  name: GitSync
+  email: git-sync@trilby.media
+  bin: git
+logging: false
